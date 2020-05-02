@@ -107,10 +107,13 @@ public final class QueryUtils {
             for (int i = 0; i < resultsArray.length(); i++) {
                 JSONObject currentNews = resultsArray.getJSONObject(i);
                 String title = currentNews.getString("webTitle");
+                JSONArray tagsArray = currentNews.getJSONArray("tags");
+                JSONObject authorObject = tagsArray.getJSONObject(0);
+                String author = authorObject.getString("webTitle");
                 String section = currentNews.getString("sectionName");
                 String date = currentNews.getString("webPublicationDate").substring(0, 10);
                 String url = currentNews.getString("webUrl");
-                News itemNews = new News(title, section, date, url);
+                News itemNews = new News(title, author, section, date, url);
                 news.add(itemNews);
             }
         } catch (JSONException e) {

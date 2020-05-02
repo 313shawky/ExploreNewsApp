@@ -21,8 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
-    private static final String THEGUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?api-key=bcdd4449-8e3c-480f-89e9-59970f08c257";
+
+    private static final String THEGUARDIAN_REQUEST_KEY = "bcdd4449-8e3c-480f-89e9-59970f08c257";
+
     private static final int NEWS_LOADER_ID = 1;
     private NewsAdapter newsAdapter;
     private TextView mEmptyStateTextView;
@@ -30,7 +31,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @NonNull
     @Override
     public Loader<List<News>> onCreateLoader(int id, @Nullable Bundle args) {
-        return new NewsLoader(this, THEGUARDIAN_REQUEST_URL);
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("https")
+                .authority("content.guardianapis.com")
+                .appendPath("search")
+                .appendQueryParameter("show-tags", "contributor")
+                .appendQueryParameter("api-key", THEGUARDIAN_REQUEST_KEY);
+        return new NewsLoader(this, builder.build().toString());
     }
 
     @Override

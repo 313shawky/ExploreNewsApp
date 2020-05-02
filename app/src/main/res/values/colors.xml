@@ -3,6 +3,7 @@
     <color name="colorPrimary">#2DA2FF</color>
     <color name="colorPrimaryDark">#004780</color>
     <color name="colorAccent">#ED83A7</color>
+    <color name="author">#269F2B</color>
     <color name="section">#0A64AC</color>
     <color name="date">#FF0057</color>
 </resources>

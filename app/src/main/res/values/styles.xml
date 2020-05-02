@@ -11,13 +11,18 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="author_style">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/author</item>
+    </style>
+
     <style name="section_style">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/section</item>
     </style>
 
     <style name="date_style">
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/date</item>
     </style>
 </resources>
